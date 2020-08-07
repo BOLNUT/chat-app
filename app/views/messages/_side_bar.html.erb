@@ -5,7 +5,7 @@
     <% end %>
   </div>
   <div class="side-user-create">
-    <a href="#">チャットを作成する</a>
+    <%= link_to 'チャットを作成する', new_room_path %> <!--"表示"したい名前を編集 "#"はPrefix_path "method"はなければ消してよい-->
   </div>
 </div>
 
@@ -17,7 +17,13 @@
   </div>
   <div class="side-room">
     <div class="side-room-name">
-      <a href="#">techroom1</a>
+      <% current_user.rooms.each do |room| %>
+        <div class="room">
+          <div class="room-name">
+            <a href="#"><%= room.name%></a>
+          </div>
+        </div>
+      <% end %>
     </div>
   </div>
 </div>
