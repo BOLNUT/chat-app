@@ -1,26 +1,21 @@
-<div class="side-user">
-  <div class="side-user-name">
+<div class="side-bar-header">
+  <div class="header-name">
     <%= link_to edit_user_path(current_user) do %>
       <%= current_user.name %>
     <% end %>
   </div>
-  <div class="side-user-create">
+  <div class="create-room">
     <%= link_to 'チャットを作成する', new_room_path %> <!--"表示"したい名前を編集 "#"はPrefix_path "method"はなければ消してよい-->
   </div>
 </div>
 
-<div class="side-rooms">
-  <div class="side-room">
-    <div class="side-room-name">
-      <a href="#">techroom1</a>
-    </div>
-  </div>
-  <div class="side-room">
-    <div class="side-room-name">
+<div class="rooms">
+  <div class="room">
+    <div class="room-name">
       <% current_user.rooms.each do |room| %>
         <div class="room">
           <div class="room-name">
-            <a href="#"><%= room.name%></a>
+            <%= link_to room.name, room_messages_path(room) %><!--"表示"したい名前を編集 "#"は "method"はなければ消してよい-->
           </div>
         </div>
       <% end %>
