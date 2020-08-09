@@ -7,4 +7,5 @@ class User < ApplicationRecord
   validates :name, presence: true #空文字を制限
   has_many :room_users
   has_many :rooms, through: :room_users
+  has_many :messages
 end
